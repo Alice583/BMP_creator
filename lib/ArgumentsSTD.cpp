@@ -2,12 +2,12 @@
 #include <iostream>
 #include <fstream>
 
-int64_t* IncreaseArray(const int64_t* matrix, int64_t size, int64_t new_size) {
+int64_t* IncreaseArray(const int64_t* array, int64_t size, int64_t new_size) {
     auto* new_arr = new int64_t[new_size];
     for (int64_t i = 0; i < size; ++i) {
-        new_arr[i] = matrix[i];
+        new_arr[i] = array[i];
     }
-    delete[] matrix;
+    delete[] array;
     return new_arr;
 }
 
@@ -19,8 +19,8 @@ void ArgumentsSTD::ReadTSV() {
     int64_t pixel = 0;
     if (file.is_open()) {
         while (file >> x_coord >> y_coord >> pixel) {
-            maxXValue = std::max(x_coord, maxXValue);
-            maxYValue = std::max(y_coord, maxYValue);
+            max_x_value = std::max(x_coord, max_x_value);
+            max_y_value = std::max(y_coord, max_y_value);
             if (index == 0) {
                 array_of_x = new int64_t;
                 array_of_y = new int64_t;

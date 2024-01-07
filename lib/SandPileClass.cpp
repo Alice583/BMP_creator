@@ -42,7 +42,7 @@ void SandPileClass::DoStabilize(int64_t x, int64_t y) {
         is_right_ = (x == width_ - 1);
         is_down_ = (y == height_ - 1);
         if (is_left_ + is_up_ + is_right_ + is_down_ != 0) {
-            ExpendMatrix(is_left_, is_right_, is_up_, is_down_);
+            ExtendMatrix(is_left_, is_right_, is_up_, is_down_);
         }
         y += is_up_;
         x += is_left_;
@@ -57,15 +57,15 @@ void SandPileClass::DoStabilize(int64_t x, int64_t y) {
         --max_iter_;
         if (iter_ == freq_) {
             BMPClass bmp(GetWidth(), GetHeight(), arrayPixels_);
-            bmp.GetBMPFile(bmp_, num);
-            ++num;
+            bmp.GetBMPFile(bmp_, num_);
+            ++num_;
             iter_ = 1;
         }
         if (!max_iter_) return;
     }
 }
 
-void SandPileClass::ExpendMatrix(bool left, bool right, bool up, bool down) {
+void SandPileClass::ExtendMatrix(bool left, bool right, bool up, bool down) {
     int64_t x = width_ + left + right;
     int64_t y = height_ + up + down;
     auto temp = new int64_t*[y];

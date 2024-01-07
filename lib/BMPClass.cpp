@@ -4,7 +4,7 @@ void BMPClass::CreateBMP(const std::string& file) {
     std::ofstream new_file(file, std::ios::out | std::ios::binary);
 
     if (!new_file.is_open()) {
-        std::cerr << "File could not be opened\n";
+        std::cerr << "File cannot be open\n";
         exit(0);
     }
 

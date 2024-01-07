@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <stdint.h>
+#include <cstdint>
 
 struct ArgumentsSTD {
     unsigned long long iter = 100;
@@ -13,10 +13,10 @@ struct ArgumentsSTD {
     int64_t* array_of_y{};
     int64_t* pixels{};
     int64_t index = 0;
-    int64_t maxXValue = INT64_MIN;
-    int64_t maxYValue = INT64_MIN;
+    int64_t max_x_value = INT64_MIN;
+    int64_t max_y_value = INT64_MIN;
 
-    virtual ~ArgumentsSTD();
+    ~ArgumentsSTD();
 
     void ReadTSV();
 };

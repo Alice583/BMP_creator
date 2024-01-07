@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <fstream>
-#include <stdint.h>
+#include <cstdint>
 
 class SandPileClass {
 private:
@@ -18,7 +18,7 @@ public:
     bool is_right_;
     bool is_up_;
     bool is_down_;
-    int64_t num = 0;
+    int64_t num_ = 0;
 
     SandPileClass(int64_t width, int64_t height, int64_t maxIter, int64_t freq);
 
@@ -38,5 +38,5 @@ public:
 
     void DoStabilize(int64_t x, int64_t y);
 
-    void ExpendMatrix(bool left, bool right, bool up, bool down);
+    void ExtendMatrix(bool left, bool right, bool up, bool down);
 };
